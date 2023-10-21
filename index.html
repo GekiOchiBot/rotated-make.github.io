@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="UTF-8">
+    <title>rotated重ね掛け作る君</title>
+    <h2 style="text-align: center;">rotated重ね掛け作る君</h2>
+    <h3 style="text-align: center;">全体の幅は大体の幅なので、その長さに絶対なるわけではありません。</h3>
+    <body>
+        <div>実行者のセレクターを入力:</div>
+        <textarea placeholder="例:@a" id="1"></textarea>
+        <div>実行位置のセレクターを入力:</div>
+        <textarea placeholder="例:@s" id="2"></textarea>
+        <div>軸用エンティティのセレクターを入力:</div>
+        <textarea placeholder="例:@e[tag=x]" id="3"></textarea>
+        <div>座標同士の幅を入力:</div>
+        <textarea placeholder="例:1" id="4"></textarea>ブロックずつ
+        <div>全体の幅を入力(必ずひとつ前に入力した数の倍数にしてください):</div>
+        <textarea placeholder="例:10" id="5"></textarea>ブロック
+        <div>座標同士の幅を入力:</div>
+        <textarea placeholder="例:1" id="7"></textarea>ブロックずつ
+        <div>全体の幅を入力(必ずひとつ前に入力した数の倍数にしてください):</div>
+        <textarea placeholder="例:10" id="8"></textarea>ブロック
+        <input type="button" value="出力" onclick="exprt()">
+        <br>
+        <br>
+        <div>出力:</div>
+        <div id="out"></div>
+
+        
+        <script type="text/javascript">
+
+            function exprt(){
+                let i = document.getElementById("1").value
+                let ii = document.getElementById("2").value
+                let iii = document.getElementById("3").value
+                let iiii = document.getElementById("4").value
+                let iiiii = document.getElementById("5").value
+                let iiiiiii = document.getElementById("7").value
+                let iiiiiiii = document.getElementById("8").value
+                let x = parseFloat(iiii) / 2;
+                let allay = []
+
+                for(let a = 0; a < 100; a++){
+                    if(x > parseFloat(iiiii)/4){
+                        break;
+                    }
+                    allay[allay.length] = " rotated as " + iii + " positioned ^ ^ ^" + x
+                    x = x*2
+                }
+
+                let z = parseFloat(iiiiiii) / 2;
+                let zallay = []
+
+                for(let a = 0; a < 100; a++){
+                    if(z > parseFloat(iiiiiiii)/4){
+                        break;
+                    }
+                    zallay[zallay.length] = " rotated as " + iii + " positioned ^" + z + " ^ ^" 
+                    z = z*2
+                }
+
+
+                let cmd = "execute as " + i + " at " + ii + allay.toString().split(",").join(" ") + zallay.toString().split(",").join(" ") + " run"
+
+                document.getElementById("out").innerText = cmd
+            }
+        </script>
+    </body>
+</html>
